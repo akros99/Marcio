@@ -1,0 +1,101 @@
+1. O que é FireWall?
+R: Um firewall é um dispositivo de segurança da rede que monitora o tráfego de rede de entrada e saída e decide permitir ou bloquear 
+tráfegos específicos de acordo com um conjunto definido de regras de segurança.
+
+2. Como um FireWall funciona?
+Os firewalls trabalham usando regras de segurança, fazendo com que pacotes de dados que estejam dentro das regras sejam aprovados,
+enquanto todos os outros nunca chegam ao destino final.
+
+3. Cite e descreva os tipos de FireWall:
+
+R:
+Filtragem de pacotes (packet filtering)
+O firewall de filtro de pacotes controla o acesso à rede analisando os pacotes de saída e de entrada. 
+Na prática, ele permite que um pacote passe ou seja bloqueado durante o caminho fazendo a comparação 
+com critérios definidos antecipadamente, como:
+
+Endereços IP permitidos;
+Tipo de pacote;
+Número de porta para acesso.
+
+-------------
+
+Proxy services
+Também conhecido como “firewall de aplicação“, o dispositivo funciona como um intermediário
+entre um computador ou rede internae outra rede, como a internet. Como lidam com um grande número
+de solicitações, os proxys são geralmente instalados em servidores potentes.
+
+-------------
+
+Stateful inspection
+O firewall realiza uma espécie de comparação entre o que já está acontecendo e o que se espera que aconteça.
+O dispositivo executa essa ação através da análise do tráfego de dados em busca padrões aceitáveis pelas suas diretrizes, 
+que seriam utilizadas para manter a comunicação.
+Esses dados são armazenados pelo firewall e utilizados como parâmetro para o tráfego subsequente. 
+Isso quer dizer que se a entrada e saída das informações ocorrer através de uma porta não mencionada, 
+o firewall interpretará isso como uma anormalidade e realizará o bloqueio do procedimento.
+
+------------
+
+4. Cite e descreva as arquiteturas do FireWall:
+R:
+Dual-Homed Firewall
+
+É um host que tem no mínimo duas interfaces de rede, conectadas cada uma a segmentos diferentes de rede. 
+O sistema nas duas redes não podem comunicar entre si, o Dual-Homed serve como intermediário para a comunicação,
+ou seja, podem comunicar com o Dual-Homed e este por sua vez vai comunicar com a outra rede, 
+proporcionando assim, um alto nível de controlo.
+O Dual-Homed Firewall,  efectua a filtragem de pacotes e rejeita o estabelecimento de conexões com serviços não autorizados.
+
+------------------------
+Screening Router:
+
+Nessa arquitetura existe comunicação direta entre múltiplos servidores internos e múltiplos servidores externos. 
+A sua zona de risco é proporcional ao número de servidores na rede interna e os tipos de serviço de tráfego permitidos pelo roteador. 
+Para cada tipo de serviço permitido a zona de risco aumenta consideravelmente. 
+
+------------------------
+
+Screened Host Firewall  
+
+Esta arquitectura é bastante segura porque existem dois níveis de protecção, na camada de rede através 
+do screening router e na camada de aplicação através do bastion host. 
+O screening router é responsável por bloquear os pacotes de serviços que não deseja que passem pelo Firewall, pacotes 
+que tenham rotas IP definidas ou que tenham como destino a sua rede interna.
+O bastion host executa servidores proxy possibilitando aos utilizadores da sua rede interna usar serviços na rede externa. 
+No caso de ocorrer uma falha existe a protecção do outro. A configuração e a manutenção deste tipo de Firewall é relativamente fácil.
+
+-------------------------
+
+Screened Subnet Firewall
+
+É uma arquitectura que combina um Screened Host com um Screening Router e um Bastion Host, formando uma sub-rede 
+segura entre as redes internas e externa.
+O DMZ não permite a comunicação directa entre as redes interna e externa, sendo feita através do Bastion Host,  
+este pode ser configurado para permitir o acesso a um número limitado de recursos que podem ser instalados dentro dele.
+O router externo  tem a função de receber os pacotes que chegam da rede externa, de bloquear 
+determinados serviços e de só permitir a passagem de pacotes que se direccionam para ou venham do Bastion Host.
+O router interno  cria uma segunda camada de segurança ao Firewall permitindo somente a passagem 
+de pacotes de ou para  o Bastion Host e a rede interna.
+
+-------------------------
+
+5. Explique sobre FireWalls de hardware:
+R: Hardware 
+Um firewall de hardware é um dispositivo externo que é conectado a um computador antes que ele se conecta à Internet. 
+Um roteador de banda larga é um exemplo de um firewall de hardware 
+
+-------------------------
+
+6. Quais são as limitações de um FireWall?
+R:
+- Um firewall não consegue impedir um ataque cuja origem e destino seja a rede interna, pois os dados não passarão por ele, 
+tornando-o ineficaz nesse tipo de ataque.
+- A política de segurança do firewall deve ser revista periodicamente, de modo a garantir o bom funcionamento do mesmo. 
+Além disso, é importante fiscalizar o funcionamento do mesmo com certa periodicidade para garantir
+que nenhum Malware ou Cracker tenha descoberto e esteja explorando alguma falha do mesmo.
+- Firewalls não são capazer de interceptar conexões que não passem por ele, como por exemplo um usuário que acesse a internet 
+usando um modem 3G.
+- Firewalls podem comprometer o desempenho da rede (ou do computador), demandando uma ampliação na infraestrutura para que seja 
+possível superar o problema.
+
